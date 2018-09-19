@@ -4,7 +4,7 @@ Installs and configures GlusterFS with VDO on Linux.
 
 ## Requirements
 
-For GlusterFS to connect between servers, TCP ports `24007`, `24008`, and `24009`/`49152`, and TCP/UDP port `111` must be open. You can open these using whatever firewall you wish (firewall-cmd etc.).
+For GlusterFS to connect between servers, TCP ports `24007`, `24008`, and `24009`/`49152`, and TCP/UDP port `111` must be open. You can open these ports by firewall-cmd etc.
 
 Only on EL 7.5 and above! Ship with RHEL 7.5 as an out-of-tree module!
 
@@ -24,6 +24,26 @@ VDO - is a Linux device mapper driver that provides deduplication and compressio
 
 ## Role Variables
 
+      lv_name: Define Volume Name LV and VDO Device Name
+      disk: Define Disk (Partition on Disk will be cleared!"
+      logical_size: VDO Device Size (Size in lvm style)
+      filesystem: FS Type (Default xfs)
+      mount_options: Mount Options (fstab style)
+      mount: Mount Point
+      rebalance: GlusterFS Rebalance Option
+      replicas: GlusterFS Repicas Option
+      gluster_server1: Gluster Node IP/Hostname 1
+      gluster_server2: Gluster Node IP/Hostname 2
+      gluster_server3: Gluster Node IP/Hostname 3
+
+
+## Dependencies
+
+Remove Procedure will only remove vdo volume because the ansible gluster_volume_module do not support remove option at this time.
+Feature Request and State > https://github.com/ansible/ansible/issues/38174
+
+## Example Playbook
+
     vdo_create:
     - lv_name: gluster_vdosd
       disk: /dev/sdc
@@ -41,22 +61,11 @@ VDO - is a Linux device mapper driver that provides deduplication and compressio
     - lv_name: gluster_vdosd
       mount: /gluster_bricks/vdosd
 
-## Dependencies
-
-# Remove Procedure will only remove vdo volume because the ansible gluster_volume_module do not support remove option at this time.
-  Feature Request and State > https://github.com/ansible/ansible/issues/38174
-
-## Example Playbook
-
-    - hosts: server
-      roles:
-        - mthkunze.vdo.glusterfs
-
 
 ## License
 
-MIT / BSD
+MIT
 
 ## Author Information
 
-[Martin Kunze](https://www./)
+[Martin Kunze](https://www.martinkunze.de)
