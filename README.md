@@ -6,7 +6,7 @@ Install and configure GlusterFS with VDO on Linux.
 
 For GlusterFS to connect between servers, TCP ports `24007`, `24008`, and `24009`/`49152`, and TCP/UDP port `111` must be open. You can open these ports by firewall-cmd etc.
 
-Only on EL 7.5 and above! Ship with RHEL 7.5 as an out-of-tree module!
+Only on EL 7.5 and above! VDO Ship with RHEL 7.5 as an out-of-tree module!
 
 Basic installation and Gluster/VDO Setup, no Brick / Volume Mounts. Ansible includes the [`gluster_volume`](https://docs.ansible.com/gluster_volume_module.html) module to ease the management of Gluster volumes.
 
