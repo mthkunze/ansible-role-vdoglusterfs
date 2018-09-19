@@ -1,4 +1,4 @@
-# Ansible Role: GlusterFS with VDO Data Reduction for EL Linux
+# GlusterFS with VDO Data Reduction for EL Linux
 
 Install and configure GlusterFS with VDO on Linux.
 
