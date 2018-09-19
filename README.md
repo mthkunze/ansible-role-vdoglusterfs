@@ -25,7 +25,7 @@ VDO - is a Linux device mapper driver that provides deduplication and compressio
  Check savings: vdostats --verbose /dev/mapper/vdodev |grep -B6 'saving percent'
 
 ## Role Variables
-```json
+```shell
       lv_name: Define Volume Name LV and VDO Device Name
       disk: Define Disk (Partition on Disk will be cleared!"
       logical_size: VDO Device Size (Size in lvm style)
@@ -45,7 +45,7 @@ Remove Procedure will only remove vdo volume because the ansible gluster_volume_
 Feature Request and Status > https://github.com/ansible/ansible/issues/38174
 
 ## Example Playbook
-```json
+```shell
     vdo_create:
     - lv_name: gluster_vdosd
       disk: /dev/sdc
