@@ -8,9 +8,9 @@ For GlusterFS to connect between servers, TCP ports `24007`, `24008`, and `24009
 
 Only on EL 7.5 and above! VDO Ship with RHEL 7.5 as an out-of-tree module!
 
-Basic installation and Gluster/VDO Setup, no Brick / Volume Mounts. Ansible includes the [`gluster_volume`](https://docs.ansible.com/gluster_volume_module.html) module to ease the management of Gluster volumes.
+Basic installation and Gluster/VDO Setup, no Brick/Volume Mounts for use in oVirt/RHEV. Ansible includes the [`gluster_volume`](https://docs.ansible.com/gluster_volume_module.html) module to manage/modify Gluster volumes.
 
-VDO information you will find here: [`dm_vdo`](https://github.com/dm-vdo), and here: [`redhat_vdo_devel`](https://www.redhat.com/mailman/listinfo/vdo-devel)!
+VDO Informations: [`dm_vdo`](https://github.com/dm-vdo), and here: [`redhat_vdo_devel`](https://www.redhat.com/mailman/listinfo/vdo-devel)! Greate Space and Performance Booster in oVirt/RHEV and Openshift Cluster Environments.
 
 VDO - is a Linux device mapper driver that provides deduplication and compression (https://de.slideshare.net/GlusterCommunity/data-reduction-for-gluster-with-vdo)
 • VDO has two kernel modules that work together to provide data efficiency 
