@@ -8,7 +8,7 @@
       disk: /dev/sdc
       logical_size: 128G
       filesystem: xfs
-      mount_options: rw,inode64,noatime,nouuid,discard
+      mount_options: inode64,noatime,nodiratime
       mount: /gluster_bricks/vdosd
       rebalance: no
       replicas: 3
