@@ -12,7 +12,7 @@ Basic installation and Gluster/VDO Setup, no Brick/Volume Mounts for use in oVir
 
 VDO Informations: [`dm_vdo`](https://github.com/dm-vdo), and here: [`redhat_vdo_devel`](https://www.redhat.com/mailman/listinfo/vdo-devel)! Greate Space and Performance Booster in oVirt/RHEV and Openshift Cluster Environments.
 
-VDO - is a Linux device mapper driver that provides deduplication and compression (https://de.slideshare.net/GlusterCommunity/data-reduction-for-gluster-with-vdo)
+VDO - is a Linux device mapper driver that provides deduplication and compression (https://de.slideshare.net/GlusterCommunity/data-reduction-for-gluster-with-vdo).
 • VDO has two kernel modules that work together to provide data efficiency 
 • The kvdo module - controls block layer and compression 
 • The uds module - maintains deduplication index and provides advice 
@@ -25,7 +25,7 @@ VDO - is a Linux device mapper driver that provides deduplication and compressio
  Check savings: vdostats --verbose /dev/mapper/vdodev |grep -B6 'saving percent'
 
 ## Role Variables
-
+´´´
       lv_name: Define Volume Name LV and VDO Device Name
       disk: Define Disk (Partition on Disk will be cleared!"
       logical_size: VDO Device Size (Size in lvm style)
@@ -37,15 +37,15 @@ VDO - is a Linux device mapper driver that provides deduplication and compressio
       gluster_server1: Gluster Node IP/Hostname 1
       gluster_server2: Gluster Node IP/Hostname 2
       gluster_server3: Gluster Node IP/Hostname 3
-
+¸¸¸
 
 ## Dependencies
 
 Remove Procedure will only remove vdo volume because the ansible gluster_volume_module do not support remove option at this time.
-Feature Request and State > https://github.com/ansible/ansible/issues/38174
+Feature Request and Status > https://github.com/ansible/ansible/issues/38174
 
 ## Example Playbook
-
+´´´
     vdo_create:
     - lv_name: gluster_vdosd
       disk: /dev/sdc
@@ -62,7 +62,7 @@ Feature Request and State > https://github.com/ansible/ansible/issues/38174
     vdo_remove:
     - lv_name: gluster_vdosd
       mount: /gluster_bricks/vdosd
-
+¸¸¸
 
 ## License
 
