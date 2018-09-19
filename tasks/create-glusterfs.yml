@@ -14,5 +14,3 @@
       - "{{ item.gluster_server3 }}"
   run_once: true
   with_items: "{{ vdo_create }}"
-  
-

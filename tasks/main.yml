@@ -1,5 +1,6 @@
 ---
 # Setup/install tasks.
+
 - include: RedHat.yml
   when: ansible_os_family == 'RedHat'
 
@@ -42,5 +43,3 @@
 #- name: Remove vdo volume(s)
 #  import_tasks: remove-vdo.yml
 #  when: vdo_remove
-
-

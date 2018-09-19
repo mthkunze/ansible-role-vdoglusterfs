@@ -24,4 +24,3 @@
   when: >
     (item.state is not defined or item.state == "present") and
     (item.mounted is not defined or item.mounted)
-
