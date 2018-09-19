@@ -1,0 +1,11 @@
+---
+# tasks file for vdogfs-ansible-role
+
+- name: Format volume
+  filesystem:
+    fstype: "{{ item.filesystem | default ('xfs') }}"
+    dev: "/dev/mapper/{{ item.lv_name }}"
+    opts: "{{ item.filesystem_mkfs_opts | default(omit) }}"
+  with_items: "{{ vdo_create }}"
+  when: >
+    item.state is not defined or item.state == "present"

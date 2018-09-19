@@ -1,0 +1,27 @@
+---
+# tasks file for vdogfs-ansible-role
+
+- name: Mount volume
+  mount:
+    name: "{{ item.mount }}"
+    src: "/dev/mapper/{{ item.lv_name }}"
+    fstype: "{{ item.filesystem | default ('xfs') }}"
+    state: mounted
+    opts: "{{ item.mount_options | default('defaults') }}"
+  with_items: "{{ vdo_create }}"
+  when: >
+    (item.state is not defined or item.state == "present") and 
+    (item.mounted is not defined or item.mounted)
+
+- name: Ensure mount paths permissions
+  file:
+    path: "{{ item.mount }}"
+    state: directory
+    owner: "{{ item.owner | default ('root') }}"
+    group: "{{ item.group | default ('root') }}"
+    mode: "{{ item.mode | default ('0755') }}"
+  with_items: "{{ vdo_create }}"
+  when: >
+    (item.state is not defined or item.state == "present") and
+    (item.mounted is not defined or item.mounted)
+

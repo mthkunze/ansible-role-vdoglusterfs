@@ -1,0 +1,18 @@
+---
+# tasks file for ansible-glusterfs
+
+- name: create gluster volume
+  gluster_volume:
+    state: present
+    name: "{{ item.lv_name }}"
+    bricks: "{{ item.mount }}/{{ item.lv_name }}"
+    rebalance: "{{ item.rebalance }}"
+    replicas: "{{ item.replicas }}"
+    cluster:
+      - "{{ item.gluster_server1 }}"
+      - "{{ item.gluster_server2 }}"
+      - "{{ item.gluster_server3 }}"
+  run_once: true
+  with_items: "{{ vdo_create }}"
+  
+

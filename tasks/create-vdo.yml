@@ -1,0 +1,13 @@
+---
+# tasks file for vdogfs-ansible-role
+
+- name: Remove partition Number 1 if exists
+  parted:
+    device: "{{ item.disk }}"
+    number: 1
+    state: absent
+  with_items: "{{ vdo_create }}"
+
+- name: Create VDO Devices
+  command: "/bin/vdo create --name={{ item.lv_name }} --device={{ item.disk }} --vdoLogicalSize={{ item.logical_size }} --force"
+  with_items: "{{ vdo_create }}"

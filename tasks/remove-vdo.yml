@@ -1,0 +1,6 @@
+---
+# tasks file for vdogfs-ansible-role
+
+- name: Remove VDO Devices
+  command: "/bin/vdo remove -n {{ item.lv_name }}"
+  with_items: "{{ vdo_remove }}"

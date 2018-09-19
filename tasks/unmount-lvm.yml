@@ -1,0 +1,23 @@
+---
+# tasks file for vdogfs-ansible-role
+
+- name: Unmount old mount point in case of change
+  command: umount /dev/mapper/{{ item.0.lv_name }}
+  when: >
+    item.1.msg is defined and
+    'line(s) removed' in item.1.msg and
+    lvm_auto_remount
+  with_together:
+    - "{{ vdo_remove }}"
+    - "{{ regex_fstab.results }}"
+
+- name: Remove old mount point from fstab in case of change
+  lineinfile:
+    dest: /etc/fstab
+    regexp: "^/dev/mapper/{{ item.lv_name }} (?!.*{{ item.mount }} ).*"
+    state: absent
+  register: regex_fstab
+  with_items: "{{ vdo_remove }}"
+  when: >
+    lvm_auto_remount and
+    item.mount is defined

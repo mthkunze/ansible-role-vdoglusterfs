@@ -1,0 +1,20 @@
+- hosts: server1, server2, server3
+  gather_facts: true
+  sudo: true
+
+  vars:
+    vdo_create:
+    - lv_name: gluster_vdosd
+      disk: /dev/sdc
+      logical_size: 128G
+      filesystem: xfs
+      mount_options: rw,inode64,noatime,nouuid,discard
+      mount: /gluster_bricks/vdosd
+      rebalance: no
+      replicas: 3
+      gluster_server1: gluster_ip1
+      gluster_server2: gluster_ip2
+      gluster_server3: gluster_ip3
+
+  roles:
+    - mthkunze.vdo.glusterfs

@@ -1,0 +1,11 @@
+- hosts: server
+  gather_facts: true
+  sudo: true
+
+  vars:
+    vdo_remove:
+    - lv_name: gluster_vdosd
+      mount: /gluster_bricks/vdosd
+
+  roles:
+    - mthkunze.vdo.glusterfs
