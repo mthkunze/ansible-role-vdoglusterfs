@@ -4,8 +4,8 @@ dependencies: []
 galaxy_info:
   author: mthkunze
   description: GlusterFS installation with VDO Data Compression.
-  company: "Gothaer-Systems"
-  license: "license (BSD, MIT)"
+  company: "MKDE"
+  license: "license (MIT)"
   min_ansible_version: 2.0
   platforms:
   - name: EL
