@@ -20,7 +20,9 @@ VDO - is a Linux device mapper driver that provides deduplication and compressio
  • Block storage 
  • File storage - (Gluster!)
  • Object storage • Utilities: 
- • vdo - Manage VDO volumes (create, remove, modify) and view configurations 
+ • vdo - Manage VDO volumes (create, remove, modify) and view configurations
+ 
+ Check savings: vdostats --verbose /dev/mapper/vdodev |grep -B6 'saving percent'
 
 ## Role Variables
 
